@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>this is calculator</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=edge">
+        <meta name="viewport" content="width = device-width, initial-scale=0.1">
+    </head>
+    <body>
+        <div id="calculetorbody">
+            <table>
+                <tr>
+                    <td colspan="4"><input type="text" id="finalresult"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="DEL" onclick="del()"></td>
+                    <td><input type="button" value="(" onclick="calculte('(')"></td>
+                    <td><input type="button" value=")" onclick="calculte(')')"></td>
+                    <td><input type="button" value="ME" onclick="about()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="calculte('7')"></td>
+                    <td><input type="button" value="8" onclick="calculte('8')"></td>
+                    <td><input type="button" value="9" onclick="calculte('9')"></td>
+                    <td><input type="button" value="+" onclick="calculte('+')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="calculte('4')"></td>
+                    <td><input type="button" value="5" onclick="calculte('5')"></td>
+                    <td><input type="button" value="6" onclick="calculte('6')"></td>
+                    <td><input type="button" value="-" onclick="calculte('-')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="calculte('1')"></td>
+                    <td><input type="button" value="2" onclick="calculte('2')"></td>
+                    <td><input type="button" value="3" onclick="calculte('3')"></td>
+                    <td><input type="button" value="*" onclick="calculte('*')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="0" onclick="calculte('0')"></td>
+                    <td><input type="button" value="." onclick="calculte('.')"></td>
+                    <td><input type="button" value="/" onclick="calculte('/')"></td>
+                    <td><input type="button" id="cls" value="=" onclick="answer()"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- this code for functinality  -->
+        <script>
+            function del(){
+                document.getElementById("finalresult").value = "" ;
+            }
+
+            function calculte(newvalue){
+                document.getElementById("finalresult").value += newvalue ;
+            }
+
+            function answer(){
+                var a = document.getElementById("finalresult").value ;
+                var b = eval(a);
+                document.getElementById("finalresult").value = b;
+            }
+
+            function about(){
+                document.getElementById("finalresult").value = "CREATOR:MURAD";
+            }
+        </script>
+        <!-- this code for style this calculetor -->
+        <style>
+            #calculetorbody{
+                width: 400px;
+                height: 500px;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+                top: 50%;
+                border-radius: 20px;
+            }
+            table{
+                background-color:black;
+                box-shadow: red;
+                border-collapse: collapse;
+            }
+            td{
+                text-align: center;
+                border: 2px solid black;
+                color: black;
+            }
+            
+            input[type="button"]{
+                height: 80px;
+                width: 90;
+                border: none;
+                background-color: black;
+                outline: none !important;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+                color: white;
+                font-size: 2rem;
+                padding: 24px;
+
+            }
+            input[type="button"]:hover {
+                background-color: green;
+                border-radius: 50px;
+                color: red;
+                outline: none;
+            }
+            input[type="text"]{
+                width: 340px;
+                height: 80px;
+                text-align: right;
+                margin: 20px;
+                padding: 2px;
+                outline: none;
+                font-size: 30px;
+            }
+        </style>
+    </body>
+</html>
